@@ -3,8 +3,9 @@
 const commander = require('commander');
 const chalk = require('chalk');
 const packageJson = require('./package.json');
-const templateEnums = {
-	REACT: 'reactTemplate',
+const excute = require('./src/index');
+const tempIndex = {
+	react: 'reactTemplate',
 }
 
 let projectName;
@@ -15,7 +16,7 @@ const program = new commander.Command(packageJson.name)
 	.option('-d, --directly', 'copy the not specified template')
 	.arguments('<templateName>')
 	.arguments('<projectName>')
-	.alias(cp)
+	.alias('cp')
 	.description('create-doddle react myProject')
 	.action(function (index, name) {
 		inputIndex = index;
@@ -39,6 +40,7 @@ if (program.args.length === 0) {
 	console.log(chalk.red('syntax error'));
 	program.help()
 }
+
 if (templateName) {
 	excute(templateName, projectName, program.force);
 } else {

@@ -3,7 +3,7 @@ const path = require('path');
 const chalk = require('chalk');
 const utils = require('./utils');
 
-const red = red;
+const red = chalk.red;
 const green = chalk.green;
 const { currentPath, downloadByGit } = utils;
 let forceDel = false;
@@ -17,7 +17,7 @@ async function rewriteJson() {
         const path = currentPath + projectName + '/package.json';
         const isExist = await fs.pathExists(path);
         if (!isExist) {
-        return;
+            return;
         }
         const json = await fs.readJson(path);
         json.name = projectName;
@@ -63,15 +63,15 @@ async function create(temp, project, force = false) {
       // 检测项目文件夹是否已存在， 若存在，抛出错误
         const res = await fs.pathExists(file);
         if (res) {
-        if (forceDel) {
-            console.log(green('force remove the exist directory'));
-            await fs.remove(file);
-            downloadByGit(renameFile, tempName);
-        } else {
-            console.log(red('Error, In this directory, the project name already exsits !'));
-            console.log(green('you can use option -f to force delete the directory !'));
-        }
-        return;
+            if (forceDel) {
+                console.log(green('force remove the exist directory'));
+                await fs.remove(file);
+                downloadByGit(renameFile, tempName);
+            } else {
+                console.log(red('Error, In this directory, the project name already exsits !'));
+                console.log(green('you can use option -f to force delete the directory !'));
+            }
+            return;
         }
       // 若不存在，直接从git下载
         downloadByGit(renameFile, tempName);
