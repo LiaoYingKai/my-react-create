@@ -5,15 +5,13 @@ const chalk = require('chalk');
 const packageJson = require('./package.json');
 const excute = require('./src/index');
 const tempIndex = {
-	react: 'reactTemplate',
+	react: 'react_init',
 }
 
 let projectName;
 let templateName;
 const program = new commander.Command(packageJson.name)
 	.version('v' + packageJson.version, '-v, --version')
-	.option('-f, --force', 'force delete the exist director')
-	.option('-d, --directly', 'copy the not specified template')
 	.arguments('<templateName>')
 	.arguments('<projectName>')
 	.alias('cp')

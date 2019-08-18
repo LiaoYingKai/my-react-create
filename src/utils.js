@@ -6,10 +6,10 @@ const green = chalk.green;
 
 function downloadByGit(callback, template) {
     console.log(green('start download'));
-    console.log(`git@github.com:closertb/${template}.git`);
+    console.log(`git@github.com:LiaoYingKai/${template}.git`);
     const result = spawn(
         'git',
-        ['clone', `git@github.com:closertb/${template}.git`],
+        ['clone', `git@github.com:LiaoYingKai/${template}.git`],
         { stdio: 'inherit' }
     );
     const error = result.error;
