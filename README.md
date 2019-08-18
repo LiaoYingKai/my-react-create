@@ -1,5 +1,11 @@
-# react cli
-這是參考別人做的 cli ，可以幫助從自己的 git 下載做好的 template
+# my react create
+[Github](https://github.com/LiaoYingKai/my-react-create)
+
+## 緣起
+不想要使用 react-app 去 create react project
+但每次自己 create 都要設定 webpack、檔案結構、package.json...
+所以就先自己做一個公版，可以去拉 github 自己寫好的 template
+所以參考別人做的 cli ，可以幫助從自己的 git 下載做好的 template
 
 ## 修改方式
 ### index.js 
